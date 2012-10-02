@@ -484,6 +484,12 @@ var bootbox = window.bootbox || (function($) {
 
         $("body").append(div);
 
+        if (options.events) {
+            for (var key in options.events) {
+                div.on(key, options.events[key]);
+            }
+        }
+
         div.modal({
             "backdrop" : (typeof options.backdrop  === 'undefined') ? _backdrop : options.backdrop,
             "keyboard" : options.keyboard
